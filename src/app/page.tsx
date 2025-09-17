@@ -1,5 +1,9 @@
 import Link from "next/link";
 
 export default function Home() {
-  return <Link href={"/posts"}>go posts page</Link>;
+  return (
+    <main>
+      <p>nextjs-apollo-graphql-ssr</p>
+    </main>
+  );
 }

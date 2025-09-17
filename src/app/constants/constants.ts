@@ -1,0 +1,1 @@
+export const QUANTITY_POSTS = 5;

@@ -497,7 +497,9 @@ export type UsersPage = {
 
 export type PostFragment = { id: string | null, title: string | null, body: string | null };
 
-export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetPostsQueryVariables = Exact<{
+  options: InputMaybe<PageQueryOptions>;
+}>;
 
 
 export type GetPostsQuery = { posts: { data: Array<{ id: string | null, title: string | null, body: string | null } | null> | null } | null };

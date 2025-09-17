@@ -1,9 +1,5 @@
-/* src/styles/globals.scss */
+@import "@/variables.module.scss";
 
-/* 1. Подключаем переменные (цвета, шрифты) */
-@import "../variables.module.scss";
-
-/* 2. Ресет/базовые стили */
 *,
 *::before,
 *::after {
@@ -13,11 +9,11 @@
 }
 
 html {
-  font-size: 16px;  // базовый размер шрифта
+  font-size: 16px;
   scroll-behavior: smooth;
-  background-color: $background-color; // из colors.scss
+  background-color: $background-color;
   color: $text-color;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -25,7 +21,6 @@ body {
   min-height: 100vh;
 }
 
-/* 3. Стили для ссылок */
 a {
   color: $primary-color;
   text-decoration: none;
@@ -36,20 +31,22 @@ a {
   }
 }
 
-/* 4. Стили для списков */
 ul,
 ol {
   list-style: none;
 }
 
-/* 5. Заголовки */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   color: $text-color;
   line-height: 1.2;
 }
 
-/* 6. Кнопки */
 button {
   cursor: pointer;
   font-family: inherit;
@@ -57,7 +54,6 @@ button {
   background: none;
 }
 
-/* 7. Изображения */
 img {
   max-width: 100%;
   display: block;

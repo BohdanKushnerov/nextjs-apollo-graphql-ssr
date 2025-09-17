@@ -15,11 +15,11 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 type Documents = {
     "\n  fragment Post on Post {\n    id\n    title\n    body\n  }\n": typeof types.PostFragmentDoc,
-    "\n  query GetPosts {\n    posts {\n      data {\n        ...Post\n      }\n    }\n  }\n  \n": typeof types.GetPostsDocument,
+    "\n  query GetPosts($options: PageQueryOptions) {\n    posts(options: $options) {\n      data {\n        ...Post\n      }\n    }\n  }\n\n  \n": typeof types.GetPostsDocument,
 };
 const documents: Documents = {
     "\n  fragment Post on Post {\n    id\n    title\n    body\n  }\n": types.PostFragmentDoc,
-    "\n  query GetPosts {\n    posts {\n      data {\n        ...Post\n      }\n    }\n  }\n  \n": types.GetPostsDocument,
+    "\n  query GetPosts($options: PageQueryOptions) {\n    posts(options: $options) {\n      data {\n        ...Post\n      }\n    }\n  }\n\n  \n": types.GetPostsDocument,
 };
 
 /**
@@ -43,7 +43,7 @@ export function graphql(source: "\n  fragment Post on Post {\n    id\n    title\
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query GetPosts {\n    posts {\n      data {\n        ...Post\n      }\n    }\n  }\n  \n"): (typeof documents)["\n  query GetPosts {\n    posts {\n      data {\n        ...Post\n      }\n    }\n  }\n  \n"];
+export function graphql(source: "\n  query GetPosts($options: PageQueryOptions) {\n    posts(options: $options) {\n      data {\n        ...Post\n      }\n    }\n  }\n\n  \n"): (typeof documents)["\n  query GetPosts($options: PageQueryOptions) {\n    posts(options: $options) {\n      data {\n        ...Post\n      }\n    }\n  }\n\n  \n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
