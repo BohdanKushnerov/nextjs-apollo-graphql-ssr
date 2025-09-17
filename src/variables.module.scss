@@ -1,0 +1,18 @@
+$primary-color: #6ca76c;       // мягкий зелёный для кнопок, ссылок
+$secondary-color: #4aa6a6;     // мягкий бирюзовый для подчеркиваний, фонов
+$accent-color: #f4b36b;        // тёплый светлый оранжевый для акцентов
+$background-color: #f0f4f8;    // светлый голубовато-серый фон страницы
+$text-color: #2f2f2f;          // мягкий тёмно-серый текст
+$card-color: #ffffff;           // белый для карточек/контейнеров
+$border-color: #d1d9e0;         // светло-серый для границ
+
+/* Экспорт для JS/TS */
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  accentColor: $accent-color;
+  backgroundColor: $background-color;
+  textColor: $text-color;
+  cardColor: $card-color;
+  borderColor: $border-color;
+}

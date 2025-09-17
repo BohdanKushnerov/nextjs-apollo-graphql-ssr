@@ -1,0 +1,38 @@
+{
+  "name": "nextjs-apollo-graphql-ssr",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:turbopack": "next dev --turbopack",
+    "build": "next build",
+    "build:turbopack": "next build --turbopack",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write",
+    "gen": "graphql-codegen --config codegen.ts"
+  },
+  "dependencies": {
+    "@apollo/client": "^4.0.5",
+    "@apollo/experimental-nextjs-app-support": "^0.13.1",
+    "next": "15.5.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.0",
+    "@graphql-codegen/cli": "^6.0.0",
+    "@graphql-codegen/client-preset": "5.0.1",
+    "@graphql-codegen/introspection": "5.0.0",
+    "@graphql-codegen/typescript": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^5.0.0",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.3",
+    "@graphql-codegen/typescript-resolvers": "^5.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "graphql": "^16.11.0",
+    "sass": "^1.92.1",
+    "typescript": "^5"
+  }
+}
