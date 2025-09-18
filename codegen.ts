@@ -3,8 +3,7 @@ import type { CodegenConfig } from "@graphql-codegen/cli";
 const config: CodegenConfig = {
   overwrite: true,
   schema: "https://graphqlzero.almansi.me/api",
-  documents: "src/graphql/**/*.ts",
-  // documents: [],
+  documents: "src/graphql/**/*.gql",
   generates: {
     "./src/graphql/__types__.ts": {
       plugins: ["typescript", "typescript-operations"],
@@ -18,10 +17,17 @@ const config: CodegenConfig = {
         },
       },
     },
-    "./src/graphql/hooks/": {
-      preset: "client",
+    "./src/graphql/hooks/hooks.ts": {
       plugins: ["typescript-react-apollo"],
-      presetConfig: { gqlImport: "graphql-tag" },
+      config: {
+        withHooks: true,
+        withHOC: false,
+        withComponent: false,
+        reactApolloVersion: 3, 
+        apolloClientVersion: 4, 
+        fragmentMasking: false, 
+        gqlImport: "graphql-tag",
+      },
     },
   },
 };

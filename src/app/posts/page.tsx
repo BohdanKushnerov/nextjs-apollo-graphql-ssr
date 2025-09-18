@@ -5,17 +5,17 @@ import {
   GetPostsQueryVariables,
   PageQueryOptions,
 } from "@/graphql/__types__";
-import { GET_POSTS } from "@/graphql/queries/getPosts";
 import { QUANTITY_POSTS } from "../constants/constants";
 import styles from "./page.module.scss";
 import PostsList from "./_components/PostList/PostList";
+import { GetPostsDocument } from "@/graphql/hooks/hooks";
 
 const PostsPage = async () => {
   const { data } = await getClient().query<
     GetPostsQuery,
     GetPostsQueryVariables
   >({
-    query: GET_POSTS,
+    query: GetPostsDocument,
     variables: {
       options: {
         paginate: {

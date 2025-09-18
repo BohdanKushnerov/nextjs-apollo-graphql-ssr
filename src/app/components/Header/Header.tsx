@@ -1,14 +1,39 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import styles from "./Header.module.scss";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 const Header = () => {
+  const pathname = usePathname();
+
   return (
-    <header>
+    <header className={styles.header}>
       <nav>
         <ul className={styles.navList}>
           <li>
-            <Link href={"/posts"}>Posts</Link>
+            <Link
+              className={clsx(
+                styles.linkButton,
+                pathname === "/posts" && styles.active
+              )}
+              href={"/posts"}
+            >
+              Posts
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={clsx(
+                styles.linkButton,
+                pathname === "/users" && styles.active
+              )}
+              href={"/users"}
+            >
+              Users
+            </Link>
           </li>
         </ul>
       </nav>

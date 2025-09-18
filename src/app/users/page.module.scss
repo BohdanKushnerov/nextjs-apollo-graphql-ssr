@@ -1,0 +1,14 @@
+@import "@/variables.module.scss";
+
+.container {
+  padding: 32px;
+  background-color: $background-color;
+}
+
+.title {
+  font-size: 32px;
+  color: $text-color;
+  margin-bottom: 24px;
+}
+
+

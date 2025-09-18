@@ -7,14 +7,14 @@ import {
   GetPostsQueryVariables,
   PageQueryOptions,
 } from "@/graphql/__types__";
-import { GET_POSTS } from "@/graphql/queries/getPosts";
+import { GetPostsDocument } from "@/graphql/hooks/hooks";
 
 export const loadMorePosts = async (page: number) => {
   const { data } = await getClient().query<
     GetPostsQuery,
     GetPostsQueryVariables
   >({
-    query: GET_POSTS,
+    query: GetPostsDocument,
     variables: {
       options: {
         paginate: {
