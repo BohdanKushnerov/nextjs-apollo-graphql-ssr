@@ -1,21 +1,21 @@
 import React from "react";
-import { getClient } from "../config/api";
+import { getClient } from "../lib/client";
 import {
-  GetPostsQuery,
-  GetPostsQueryVariables,
+  GetAllPostsQuery,
+  GetAllPostsQueryVariables,
   PageQueryOptions,
 } from "@/graphql/__types__";
 import { QUANTITY_POSTS } from "../constants/constants";
-import styles from "./page.module.scss";
+import styles from "./Posts.module.scss";
+import { GetAllPostsDocument } from "@/graphql/hooks/hooks";
 import PostsList from "./_components/PostList/PostList";
-import { GetPostsDocument } from "@/graphql/hooks/hooks";
 
 const PostsPage = async () => {
   const { data } = await getClient().query<
-    GetPostsQuery,
-    GetPostsQueryVariables
+    GetAllPostsQuery,
+    GetAllPostsQueryVariables
   >({
-    query: GetPostsDocument,
+    query: GetAllPostsDocument,
     variables: {
       options: {
         paginate: {

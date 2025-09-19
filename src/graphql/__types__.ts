@@ -497,9 +497,16 @@ export type UsersPage = {
 
 export type PostFragment = { id: string | null, title: string | null, body: string | null };
 
-export type GetPostsQueryVariables = Exact<{
+export type GetAllPostsQueryVariables = Exact<{
   options: InputMaybe<PageQueryOptions>;
 }>;
 
 
-export type GetPostsQuery = { posts: { data: Array<{ id: string | null, title: string | null, body: string | null } | null> | null } | null };
+export type GetAllPostsQuery = { posts: { data: Array<{ id: string | null, title: string | null, body: string | null } | null> | null } | null };
+
+export type GetPostQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type GetPostQuery = { post: { id: string | null, title: string | null, body: string | null } | null };

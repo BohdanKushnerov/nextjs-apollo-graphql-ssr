@@ -2,11 +2,14 @@
 
 import React, { FC, useState } from "react";
 import styles from "./PostList.module.scss";
-import { GetPostsQuery } from "@/graphql/__types__";
+import { GetAllPostsQuery } from "@/graphql/__types__";
 import { loadMorePosts } from "../../_services/loadMorePosts";
-import LoadMoreButton from "@/app/components/LoadMoreButton/LoadMoreButton";
+import LoadMoreButton from "@/components/LoadMoreButton/LoadMoreButton";
+import Link from "next/link";
 
-export type PostData = NonNullable<GetPostsQuery["posts"]>["data"] | undefined;
+export type PostData =
+  | NonNullable<GetAllPostsQuery["posts"]>["data"]
+  | undefined;
 
 interface PostListProps {
   postsData: PostData;
@@ -38,8 +41,10 @@ const PostsList: FC<PostListProps> = ({ postsData }) => {
       <ul className={styles.postList}>
         {posts.map((post) => (
           <li className={styles.post} key={post?.id}>
-            <p className={styles.postTitle}>{post?.title}</p>
-            <p className={styles.postBody}>{post?.body}</p>
+            <Link href={`/posts/${post?.id}`}>
+              <p className={styles.postTitle}>{post?.title}</p>
+              <p className={styles.postBody}>{post?.body}</p>
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,20 +1,20 @@
 "use server";
 
-import { getClient } from "@/app/config/api";
+import { getClient } from "@/app/lib/client";
 import { QUANTITY_POSTS } from "@/app/constants/constants";
 import {
-  GetPostsQuery,
-  GetPostsQueryVariables,
+  GetAllPostsQuery,
+  GetAllPostsQueryVariables,
   PageQueryOptions,
 } from "@/graphql/__types__";
-import { GetPostsDocument } from "@/graphql/hooks/hooks";
+import { GetAllPostsDocument } from "@/graphql/hooks/hooks";
 
 export const loadMorePosts = async (page: number) => {
   const { data } = await getClient().query<
-    GetPostsQuery,
-    GetPostsQueryVariables
+    GetAllPostsQuery,
+    GetAllPostsQueryVariables
   >({
-    query: GetPostsDocument,
+    query: GetAllPostsDocument,
     variables: {
       options: {
         paginate: {

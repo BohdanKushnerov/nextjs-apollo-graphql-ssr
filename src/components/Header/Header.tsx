@@ -35,6 +35,28 @@ const Header = () => {
               Users
             </Link>
           </li>
+          <li>
+            <Link
+              className={clsx(
+                styles.linkButton,
+                pathname === "/search-posts-csr" && styles.active
+              )}
+              href={"/search-posts-csr"}
+            >
+              SearchPosts-CSR
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={clsx(
+                styles.linkButton,
+                pathname === "/search-posts-ssr" && styles.active
+              )}
+              href={"/search-posts-ssr"}
+            >
+              SearchPosts-SSR
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
