@@ -1,0 +1,26 @@
+.userItem {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(21, 255, 0, 0.5);
+    cursor: pointer;
+  }
+
+  p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #333;
+
+    &:first-child {
+      font-weight: bold;
+      color: #222;
+    }
+  }
+}

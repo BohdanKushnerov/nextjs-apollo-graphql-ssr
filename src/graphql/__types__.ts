@@ -497,6 +497,8 @@ export type UsersPage = {
 
 export type PostFragment = { id: string | null, title: string | null, body: string | null };
 
+export type UserFragment = { id: string | null, username: string | null, email: string | null, address: { geo: { lat: number | null, lng: number | null } | null } | null };
+
 export type GetAllPostsQueryVariables = Exact<{
   options: InputMaybe<PageQueryOptions>;
 }>;
@@ -504,9 +506,23 @@ export type GetAllPostsQueryVariables = Exact<{
 
 export type GetAllPostsQuery = { posts: { data: Array<{ id: string | null, title: string | null, body: string | null } | null> | null } | null };
 
+export type GetAllUsersQueryVariables = Exact<{
+  options: InputMaybe<PageQueryOptions>;
+}>;
+
+
+export type GetAllUsersQuery = { users: { data: Array<{ id: string | null, username: string | null, email: string | null, address: { geo: { lat: number | null, lng: number | null } | null } | null } | null> | null } | null };
+
 export type GetPostQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
 export type GetPostQuery = { post: { id: string | null, title: string | null, body: string | null } | null };
+
+export type GetUserQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type GetUserQuery = { user: { id: string | null, username: string | null, email: string | null, address: { geo: { lat: number | null, lng: number | null } | null } | null } | null };

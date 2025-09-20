@@ -1,0 +1,11 @@
+fragment User on User {
+  id
+  username
+  email
+  address {
+    geo {
+      lat
+      lng
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.userList {
+  padding: 1rem;
+  background: #f9f9f9;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
