@@ -23,7 +23,7 @@ const PostsList: FC<PostListProps> = ({ postsData }) => {
     return <p>No posts</p>;
   }
 
-  const handleClickLoadMore = async () => {
+  const handleClickLoadMorePosts = async () => {
     const nextPage = currentPage + 1;
     const morePosts = await loadMorePosts(nextPage);
 
@@ -48,7 +48,7 @@ const PostsList: FC<PostListProps> = ({ postsData }) => {
           </li>
         ))}
       </ul>
-      <LoadMoreButton title="Load More Posts" loadMore={handleClickLoadMore} />
+      <LoadMoreButton title="Load More Posts" loadMore={handleClickLoadMorePosts} />
     </>
   );
 };
