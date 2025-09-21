@@ -57,6 +57,17 @@ const Header = () => {
               SearchPosts-SSR
             </Link>
           </li>
+          <li>
+            <Link
+              className={clsx(
+                styles.linkButton,
+                pathname === "/create-post" && styles.active
+              )}
+              href={"/create-post"}
+            >
+              CreatePost
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

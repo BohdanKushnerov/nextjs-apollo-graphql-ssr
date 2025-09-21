@@ -499,6 +499,13 @@ export type PostFragment = { id: string | null, title: string | null, body: stri
 
 export type UserFragment = { id: string | null, username: string | null, email: string | null, address: { geo: { lat: number | null, lng: number | null } | null } | null };
 
+export type CreatePostMutationVariables = Exact<{
+  input: CreatePostInput;
+}>;
+
+
+export type CreatePostMutation = { createPost: { id: string | null, title: string | null, body: string | null } | null };
+
 export type GetAllPostsQueryVariables = Exact<{
   options: InputMaybe<PageQueryOptions>;
 }>;
