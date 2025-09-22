@@ -1,5 +1,5 @@
 query GetPost($id: ID!) {
   post(id: $id) {
-    ...Post
+    ...PostFields
   }
 }

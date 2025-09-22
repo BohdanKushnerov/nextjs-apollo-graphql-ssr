@@ -495,9 +495,11 @@ export type UsersPage = {
   meta: Maybe<PageMetadata>;
 };
 
-export type PostFragment = { id: string | null, title: string | null, body: string | null };
+export type PhotoFieldsFragment = { title: string | null, url: string | null, id: string | null };
 
-export type UserFragment = { id: string | null, username: string | null, email: string | null, address: { geo: { lat: number | null, lng: number | null } | null } | null };
+export type PostFieldsFragment = { id: string | null, title: string | null, body: string | null };
+
+export type UserFieldsFragment = { id: string | null, username: string | null, email: string | null, address: { geo: { lat: number | null, lng: number | null } | null } | null };
 
 export type CreatePostMutationVariables = Exact<{
   input: CreatePostInput;
@@ -505,6 +507,13 @@ export type CreatePostMutationVariables = Exact<{
 
 
 export type CreatePostMutation = { createPost: { id: string | null, title: string | null, body: string | null } | null };
+
+export type GetAllPhotosQueryVariables = Exact<{
+  options: InputMaybe<PageQueryOptions>;
+}>;
+
+
+export type GetAllPhotosQuery = { photos: { data: Array<{ title: string | null, url: string | null, id: string | null } | null> | null } | null };
 
 export type GetAllPostsQueryVariables = Exact<{
   options: InputMaybe<PageQueryOptions>;

@@ -68,6 +68,17 @@ const Header = () => {
               CreatePost
             </Link>
           </li>
+          <li>
+            <Link
+              className={clsx(
+                styles.linkButton,
+                pathname === "/photos" && styles.active
+              )}
+              href={"/photos"}
+            >
+              Photos
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

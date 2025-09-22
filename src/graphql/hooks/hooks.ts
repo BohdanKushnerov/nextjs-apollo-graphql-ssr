@@ -1,15 +1,22 @@
 import gql from "graphql-tag";
-import * as Apollo from "@apollo/client/react";
+import * as Apollo from "@apollo/client";
 const defaultOptions = {} as const;
-export const PostFragmentDoc = gql`
-  fragment Post on Post {
+export const PhotoFieldsFragmentDoc = gql`
+  fragment PhotoFields on Photo {
+    title
+    url
+    id
+  }
+`;
+export const PostFieldsFragmentDoc = gql`
+  fragment PostFields on Post {
     id
     title
     body
   }
 `;
-export const UserFragmentDoc = gql`
-  fragment User on User {
+export const UserFieldsFragmentDoc = gql`
+  fragment UserFields on User {
     id
     username
     email
@@ -73,15 +80,96 @@ export type CreatePostMutationOptions = Apollo.BaseMutationOptions<
   CreatePostMutation,
   CreatePostMutationVariables
 >;
+export const GetAllPhotosDocument = gql`
+  query GetAllPhotos($options: PageQueryOptions) {
+    photos(options: $options) {
+      data {
+        ...PhotoFields
+      }
+    }
+  }
+  ${PhotoFieldsFragmentDoc}
+`;
+
+/**
+ * __useGetAllPhotosQuery__
+ *
+ * To run a query within a React component, call `useGetAllPhotosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllPhotosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllPhotosQuery({
+ *   variables: {
+ *      options: // value for 'options'
+ *   },
+ * });
+ */
+export function useGetAllPhotosQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetAllPhotosQuery,
+    GetAllPhotosQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetAllPhotosQuery, GetAllPhotosQueryVariables>(
+    GetAllPhotosDocument,
+    options
+  );
+}
+export function useGetAllPhotosLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetAllPhotosQuery,
+    GetAllPhotosQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetAllPhotosQuery, GetAllPhotosQueryVariables>(
+    GetAllPhotosDocument,
+    options
+  );
+}
+export function useGetAllPhotosSuspenseQuery(
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<
+        GetAllPhotosQuery,
+        GetAllPhotosQueryVariables
+      >
+) {
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
+  return Apollo.useSuspenseQuery<GetAllPhotosQuery, GetAllPhotosQueryVariables>(
+    GetAllPhotosDocument,
+    options
+  );
+}
+export type GetAllPhotosQueryHookResult = ReturnType<
+  typeof useGetAllPhotosQuery
+>;
+export type GetAllPhotosLazyQueryHookResult = ReturnType<
+  typeof useGetAllPhotosLazyQuery
+>;
+export type GetAllPhotosSuspenseQueryHookResult = ReturnType<
+  typeof useGetAllPhotosSuspenseQuery
+>;
+export type GetAllPhotosQueryResult = Apollo.QueryResult<
+  GetAllPhotosQuery,
+  GetAllPhotosQueryVariables
+>;
 export const GetAllPostsDocument = gql`
   query GetAllPosts($options: PageQueryOptions) {
     posts(options: $options) {
       data {
-        ...Post
+        ...PostFields
       }
     }
   }
-  ${PostFragmentDoc}
+  ${PostFieldsFragmentDoc}
 `;
 
 /**
@@ -156,11 +244,11 @@ export const GetAllUsersDocument = gql`
   query GetAllUsers($options: PageQueryOptions) {
     users(options: $options) {
       data {
-        ...User
+        ...UserFields
       }
     }
   }
-  ${UserFragmentDoc}
+  ${UserFieldsFragmentDoc}
 `;
 
 /**
@@ -234,10 +322,10 @@ export type GetAllUsersQueryResult = Apollo.QueryResult<
 export const GetPostDocument = gql`
   query GetPost($id: ID!) {
     post(id: $id) {
-      ...Post
+      ...PostFields
     }
   }
-  ${PostFragmentDoc}
+  ${PostFieldsFragmentDoc}
 `;
 
 /**
@@ -301,10 +389,10 @@ export type GetPostQueryResult = Apollo.QueryResult<
 export const GetUserDocument = gql`
   query GetUser($id: ID!) {
     user(id: $id) {
-      ...User
+      ...UserFields
     }
   }
-  ${UserFragmentDoc}
+  ${UserFieldsFragmentDoc}
 `;
 
 /**

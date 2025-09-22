@@ -1,0 +1,7 @@
+query GetAllPhotos($options: PageQueryOptions) {
+  photos(options: $options) {
+    data {
+      ...PhotoFields
+    }
+  }
+}
