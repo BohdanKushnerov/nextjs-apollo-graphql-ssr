@@ -508,6 +508,14 @@ export type CreatePostMutationVariables = Exact<{
 
 export type CreatePostMutation = { createPost: { id: string | null, title: string | null, body: string | null } | null };
 
+export type UpdatePostMutationVariables = Exact<{
+  id: Scalars['ID']['input'];
+  input: UpdatePostInput;
+}>;
+
+
+export type UpdatePostMutation = { updatePost: { id: string | null, title: string | null, body: string | null } | null };
+
 export type GetAllPhotosQueryVariables = Exact<{
   options: InputMaybe<PageQueryOptions>;
 }>;
