@@ -508,6 +508,13 @@ export type CreatePostMutationVariables = Exact<{
 
 export type CreatePostMutation = { createPost: { id: string | null, title: string | null, body: string | null } | null };
 
+export type DeletePostMutationVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type DeletePostMutation = { deletePost: boolean | null };
+
 export type UpdatePostMutationVariables = Exact<{
   id: Scalars['ID']['input'];
   input: UpdatePostInput;

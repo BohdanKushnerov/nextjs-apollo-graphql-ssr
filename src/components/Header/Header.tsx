@@ -83,6 +83,17 @@ const Header = () => {
             <Link
               className={clsx(
                 styles.linkButton,
+                pathname === "/delete-post" && styles.active
+              )}
+              href={"/delete-post"}
+            >
+              DeletePost
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={clsx(
+                styles.linkButton,
                 pathname === "/photos" && styles.active
               )}
               href={"/photos"}
