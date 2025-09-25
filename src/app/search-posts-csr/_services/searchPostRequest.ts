@@ -11,7 +11,7 @@ export const searchPostRequest = async (_: any, formData: FormData) => {
       query: GetPostDocument,
       variables: { id },
       fetchPolicy: "cache-first",
-    }
+    },
   );
 
   console.log("searchPostRequest data", data);

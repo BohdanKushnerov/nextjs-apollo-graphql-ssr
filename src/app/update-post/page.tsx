@@ -33,12 +33,12 @@ const UpdatePostPage = () => {
         return prevState;
       }
     },
-    { id: null, title: "", body: "" }
+    { id: null, title: "", body: "" },
   );
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Update Post</h1>
+    <div className="container">
+      <h1 className="title">Update Post</h1>
 
       <form action={formAction} className={styles.form}>
         <input

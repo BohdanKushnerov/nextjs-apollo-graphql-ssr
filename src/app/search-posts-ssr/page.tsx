@@ -7,7 +7,7 @@ import { searchPostRequest } from "./_services/searchPostRequest";
 const SearchPostsSSR = () => {
   const [state, formAction, isPending] = useActionState(
     searchPostRequest,
-    null
+    null,
   );
 
   return (

@@ -5,10 +5,11 @@ import {
   GetAllPhotosQueryVariables,
   PageQueryOptions,
 } from "@/graphql/__types__";
-import { QUANTITY_PHOTOS } from "../constants/constants";
+import { QUANTITY_PHOTOS } from "../../constants/constants";
 import { GetAllPhotosDocument } from "@/graphql/hooks/hooks";
-import PhotosList from "./_components/PostList/PhotosList";
+import PhotosList from "./_components/PhotoListList/PhotoList";
 import styles from "./Photos.module.scss";
+import clsx from "clsx";
 
 const PhotosPage = async () => {
   const { data } = await getClient().query<
@@ -27,8 +28,8 @@ const PhotosPage = async () => {
   });
 
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>Photos</h1>
+    <main className={clsx("container", "container-wide")}>
+      <h1 className="title">Photos</h1>
 
       {data ? (
         <PhotosList photosData={data?.photos?.data} />

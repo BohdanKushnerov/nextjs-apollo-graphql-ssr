@@ -10,7 +10,7 @@ const SearchPostsCSR = () => {
     (_: any, formData: FormData) => {
       return formData.get("id") as string | null;
     },
-    null
+    null,
   );
 
   const { data } = useGetPostSuspenseQuery(
@@ -20,7 +20,7 @@ const SearchPostsCSR = () => {
           fetchPolicy: "cache-first",
           queryKey: `postID key: ${postId}`,
         }
-      : skipToken
+      : skipToken,
   );
 
   return (

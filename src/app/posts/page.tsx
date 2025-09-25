@@ -5,10 +5,10 @@ import {
   GetAllPostsQueryVariables,
   PageQueryOptions,
 } from "@/graphql/__types__";
-import { QUANTITY_POSTS } from "../constants/constants";
-import styles from "./Posts.module.scss";
+import { QUANTITY_POSTS } from "../../constants/constants";
 import { GetAllPostsDocument } from "@/graphql/hooks/hooks";
 import PostsList from "./_components/PostList/PostList";
+import clsx from "clsx";
 
 const PostsPage = async () => {
   const { data } = await getClient().query<
@@ -27,8 +27,8 @@ const PostsPage = async () => {
   });
 
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>Posts</h1>
+    <main className={clsx("container", "container-wide")}>
+      <h1 className="title">Posts</h1>
 
       {data ? (
         <PostsList postsData={data?.posts?.data} />

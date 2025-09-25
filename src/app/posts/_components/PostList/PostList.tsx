@@ -37,8 +37,8 @@ const PostsList: FC<PostListProps> = ({ postsData }) => {
   };
 
   return (
-    <>
-      <ul className={styles.postList}>
+    <div className="listContainer">
+      <ul className="list">
         {posts.map((post) => (
           <li className={styles.post} key={post?.id}>
             <Link href={`/posts/${post?.id}`}>
@@ -48,8 +48,11 @@ const PostsList: FC<PostListProps> = ({ postsData }) => {
           </li>
         ))}
       </ul>
-      <LoadMoreButton title="Load More Posts" loadMore={handleClickLoadMorePosts} />
-    </>
+      <LoadMoreButton
+        title="Load More Posts"
+        loadMore={handleClickLoadMorePosts}
+      />
+    </div>
   );
 };
 

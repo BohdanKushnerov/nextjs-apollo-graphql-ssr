@@ -3,11 +3,9 @@
 import React, { FC, useState } from "react";
 import { GetAllPhotosQuery } from "@/graphql/__types__";
 import LoadMoreButton from "@/components/LoadMoreButton/LoadMoreButton";
-import Link from "next/link";
 import { loadMorePhotos } from "../../_services/loadMorePhotos";
-import Image from "next/image";
 import { getRandomPicsumUrl } from "../../_utils/getRandomPicsumUrl";
-import styles from "./PhotosList.module.scss";
+import PhotoItem from "../PhotoItem/PhotoItem";
 
 export type PhotosData =
   | NonNullable<GetAllPhotosQuery["photos"]>["data"]
@@ -60,33 +58,17 @@ const PhotosList: FC<PostListProps> = ({ photosData }) => {
   };
 
   return (
-    <>
-      <ul className={styles.photosList}>
+    <div className="listContainer">
+      <ul className="list">
         {photos.map((photo) => (
-          <li key={photo?.id} className={styles.photoItem}>
-            <Link href={`/photos/${photo?.id}`}>
-              <p className={styles.text}>Photo id: {photo?.id}</p>
-              <p className={styles.text}>Photo title: {photo?.title}</p>
-              <p className={styles.text}>
-                Photo url - api photo not working!!!: {photo?.url}
-              </p>
-              {photo?.url && (
-                <Image
-                  src={photo.localUrl || getRandomPicsumUrl(100)}
-                  alt={photo.url}
-                  width={100}
-                  height={100}
-                />
-              )}
-            </Link>
-          </li>
+          <PhotoItem photo={photo} />
         ))}
       </ul>
       <LoadMoreButton
         title="Load More Photos"
         loadMore={handleClickLoadMorePosts}
       />
-    </>
+    </div>
   );
 };
 

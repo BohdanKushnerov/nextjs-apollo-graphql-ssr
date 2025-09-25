@@ -1,7 +1,7 @@
 "use server";
 
 import { getClient } from "@/app/lib/client";
-import { QUANTITY_POSTS } from "@/app/constants/constants";
+import { QUANTITY_POSTS } from "@/constants/constants";
 import {
   GetAllPostsQuery,
   GetAllPostsQueryVariables,

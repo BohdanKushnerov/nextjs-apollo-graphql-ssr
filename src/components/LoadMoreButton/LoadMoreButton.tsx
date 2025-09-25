@@ -16,7 +16,7 @@ const LoadMoreButton: FC<LoadMoreButtonProps> = ({ title, loadMore }) => {
   }, null);
 
   return (
-    <form action={formAction}>
+    <form className={styles.form} action={formAction}>
       <button className={styles.button} type="submit">
         {isPending ? "Loading..." : title}
       </button>

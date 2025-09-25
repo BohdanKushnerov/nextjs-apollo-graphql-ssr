@@ -6,7 +6,7 @@ import styles from "./[id].module.scss";
 import TurnBackButton from "@/components/TurnBackButton/TurnBackButton";
 import UserItem from "../_components/UserItem/UserItem";
 
-const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+const UserPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
   const { data } = await getClient().query<GetUserQuery, GetUserQueryVariables>(
@@ -27,4 +27,4 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   );
 };
 
-export default Page;
+export default UserPage;

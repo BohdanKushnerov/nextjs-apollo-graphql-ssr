@@ -1,7 +1,7 @@
 "use server";
 
 import { getClient } from "@/app/lib/client";
-import { QUANTITY_USERS } from "@/app/constants/constants";
+import { QUANTITY_USERS } from "@/constants/constants";
 import {
   GetAllUsersQuery,
   GetAllUsersQueryVariables,

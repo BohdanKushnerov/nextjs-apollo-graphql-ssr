@@ -14,14 +14,14 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
       variables: {
         id,
       },
-    }
+    },
   );
 
   return (
     <div className={styles.post}>
       <TurnBackButton />
       <p className={styles.postId}>ID: {data?.post?.id}</p>
-      <h1 className={styles.title}>{data?.post?.title}</h1>
+      <h1 className="title">{data?.post?.title}</h1>
       <p className={styles.body}>{data?.post?.body}</p>
     </div>
   );

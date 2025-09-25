@@ -3,7 +3,6 @@
 import { GetAllUsersQuery } from "@/graphql/__types__";
 import React, { FC, useState } from "react";
 import UserItem from "../UserItem/UserItem";
-import styles from "./UserList.module.scss";
 import Link from "next/link";
 import { loadMoreUsers } from "../../_services/loadMoreUsers";
 import LoadMoreButton from "@/components/LoadMoreButton/LoadMoreButton";
@@ -34,8 +33,8 @@ const UserList: FC<UserListProps> = ({ usersData }) => {
   };
 
   return (
-    <div className={styles.userList}>
-      <ul>
+    <div className="listContainer">
+      <ul className="list">
         {users?.map((user) => (
           <li key={user?.id}>
             <Link href={`/users/${user?.id}`}>

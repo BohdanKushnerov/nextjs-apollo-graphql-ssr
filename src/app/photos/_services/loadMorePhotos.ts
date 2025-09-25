@@ -1,7 +1,7 @@
 "use server";
 
 import { getClient } from "@/app/lib/client";
-import { QUANTITY_PHOTOS } from "@/app/constants/constants";
+import { QUANTITY_PHOTOS } from "@/constants/constants";
 import {
   GetAllPhotosQuery,
   GetAllPhotosQueryVariables,

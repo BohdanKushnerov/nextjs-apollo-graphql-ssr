@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!src/graphql/hooks/hooks.ts"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!src/graphql/hooks/hooks.ts"
+    ]
   },
   "formatter": {
     "enabled": true,
