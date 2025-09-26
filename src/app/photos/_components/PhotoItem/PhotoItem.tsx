@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import styles from "./PostItem.module.scss";
+import styles from "./PhotoItem.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { PhotoWithLocalUrl } from "../PhotoListList/PhotoList";

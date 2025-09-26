@@ -42,6 +42,7 @@ const PostsList: FC<PostListProps> = ({ postsData }) => {
         {posts.map((post) => (
           <li className={styles.post} key={post?.id}>
             <Link href={`/posts/${post?.id}`}>
+              <p>ID: {post?.id}</p>
               <p className={styles.postTitle}>{post?.title}</p>
               <p className={styles.postBody}>{post?.body}</p>
             </Link>

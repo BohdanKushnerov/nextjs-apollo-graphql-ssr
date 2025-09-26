@@ -2,7 +2,6 @@
 
 import { useDeletePostMutation } from "@/graphql/hooks/hooks";
 import { useActionState } from "react";
-import styles from "./DeletePostPage.module.scss";
 
 const DeletePostPage = () => {
   const [deletePost, { data, loading, error }] = useDeletePostMutation();
@@ -29,30 +28,30 @@ const DeletePostPage = () => {
         return prevState;
       }
     },
-    { id: null },
+    { id: null }
   );
 
   return (
     <div className="container">
-      <h1 className="title">Update Post</h1>
+      <h1 className="title">Delete Post</h1>
 
-      <form action={formAction} className={styles.form}>
+      <form action={formAction} className="form">
         <input
           type="number"
           name="id"
           placeholder="ID"
           required
-          className={styles.input}
         />
-        <button type="submit" disabled={isPending} className={styles.button}>
+        <button type="submit" disabled={isPending}>
           {isPending ? "Deleting..." : "Delete Post"}
         </button>
       </form>
 
-      {loading && <p className={styles.error}>Loading useMutation...</p>}
-      {error && <p className={styles.error}>Error: {error.message}</p>}
+      {loading && <p className="loading-text">Loading useMutation...</p>}
+
+      {error && <p className="error-text">Error: {error.message}</p>}
       {data && (
-        <p className={styles.success}>
+        <p className="success-text">
           ✅ Post deleted! : {String(data.deletePost)}
         </p>
       )}

@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useActionState } from "react";
-import styles from "./SearchPosts.module.scss";
-import { useGetPostSuspenseQuery } from "@/graphql/hooks/hooks";
 import { skipToken } from "@apollo/client/react";
+import FoundPost from "../../components/FoundPost/FoundPost";
+import { useGetPostSuspenseQuery } from "@/graphql/hooks/hooks";
+import { GetPostQuery } from "@/graphql/__types__";
 
 const SearchPostsCSR = () => {
   const [postId, formAction, isPending] = useActionState(
     (_: any, formData: FormData) => {
       return formData.get("id") as string | null;
     },
-    null,
+    null
   );
 
   const { data } = useGetPostSuspenseQuery(
@@ -20,28 +21,21 @@ const SearchPostsCSR = () => {
           fetchPolicy: "cache-first",
           queryKey: `postID key: ${postId}`,
         }
-      : skipToken,
-  );
+      : skipToken
+  ) as { data: GetPostQuery | undefined };
 
   return (
-    <main className={styles.main}>
-      <form className={styles.form} action={formAction}>
+    <main className="container">
+      <form className="form" action={formAction}>
         <input type="text" name="id" placeholder="Post ID" required />
         <button type="submit" disabled={isPending}>
-          Find Post
+          {isPending ? "Loading..." : "Find Post"}
         </button>
       </form>
 
       {!postId && <p>Current state is null</p>}
 
-      {data?.post && (
-        <div className={styles.result}>
-          <h1>We found the post:</h1>
-          <p>ID: {data.post.id}</p>
-          <p>Title: {data.post.title}</p>
-          <p>Body: {data.post.body}</p>
-        </div>
-      )}
+      {data?.post && <FoundPost post={data.post} />}
     </main>
   );
 };

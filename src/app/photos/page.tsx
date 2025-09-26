@@ -8,7 +8,6 @@ import {
 import { QUANTITY_PHOTOS } from "../../constants/constants";
 import { GetAllPhotosDocument } from "@/graphql/hooks/hooks";
 import PhotosList from "./_components/PhotoListList/PhotoList";
-import styles from "./Photos.module.scss";
 import clsx from "clsx";
 
 const PhotosPage = async () => {

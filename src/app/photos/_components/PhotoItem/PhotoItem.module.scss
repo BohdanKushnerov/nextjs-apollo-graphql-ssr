@@ -1,4 +1,7 @@
 .photoItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #f8f8f8;
   border-radius: 8px;
   overflow: hidden;

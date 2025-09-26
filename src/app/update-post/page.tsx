@@ -2,7 +2,6 @@
 
 import { useUpdatePostMutation } from "@/graphql/hooks/hooks";
 import { useActionState } from "react";
-import styles from "./UpdatePostPage.module.scss";
 
 const UpdatePostPage = () => {
   const [updatePost, { data, loading, error }] = useUpdatePostMutation();
@@ -33,45 +32,30 @@ const UpdatePostPage = () => {
         return prevState;
       }
     },
-    { id: null, title: "", body: "" },
+    { id: null, title: "", body: "" }
   );
 
   return (
     <div className="container">
       <h1 className="title">Update Post</h1>
 
-      <form action={formAction} className={styles.form}>
-        <input
-          type="number"
-          name="id"
-          placeholder="ID"
-          required
-          className={styles.input}
-        />
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          required
-          className={styles.input}
-        />
-        <textarea
-          name="body"
-          placeholder="Body"
-          required
-          className={styles.textarea}
-        />
-        <button type="submit" disabled={isPending} className={styles.button}>
-          {isPending ? "Creating..." : "Create Post"}
+      <form action={formAction} className="form">
+        <input type="number" name="id" placeholder="ID" required />
+        <input type="text" name="title" placeholder="Title" required />
+        <textarea name="body" placeholder="Body" required />
+        <button type="submit" disabled={isPending} className="button">
+          {isPending ? "Creating..." : "Update Post"}
         </button>
       </form>
 
-      {loading && <p className={styles.error}>Loading useMutation...</p>}
-      {error && <p className={styles.error}>Error: {error.message}</p>}
+      {loading && <p className="loading-text">Loading Mutation...</p>}
+      {error && <p className="error-text">Error: {error.message}</p>}
       {data && (
-        <p className={styles.success}>
-          ✅ Post updated! ID: {data.updatePost.id}
-          Title: {data.updatePost.title}
+        <p className="success-text">
+          ✅ Post updated! ID: {String(data.updatePost.id)}
+          <br />
+          Title: {String(data.updatePost.title)}
+          <br />
           Body: {data.updatePost.body}
         </p>
       )}

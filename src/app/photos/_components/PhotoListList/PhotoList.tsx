@@ -59,9 +59,9 @@ const PhotosList: FC<PostListProps> = ({ photosData }) => {
 
   return (
     <div className="listContainer">
-      <ul className="list">
+      <ul className="listRow">
         {photos.map((photo) => (
-          <PhotoItem photo={photo} />
+          <PhotoItem key={photo.id} photo={photo} />
         ))}
       </ul>
       <LoadMoreButton

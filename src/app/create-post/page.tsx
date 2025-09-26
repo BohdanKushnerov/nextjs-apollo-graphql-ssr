@@ -26,36 +26,27 @@ const CreatePostPage = () => {
         return prevState;
       }
     },
-    { title: "", body: "" },
+    { title: "", body: "" }
   );
 
   return (
     <div className="container">
       <h1 className="title">Create Post</h1>
 
-      <form action={formAction} className={styles.form}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          required
-          className={styles.input}
-        />
-        <textarea
-          name="body"
-          placeholder="Body"
-          required
-          className={styles.textarea}
-        />
-        <button type="submit" disabled={isPending} className={styles.button}>
+      <form action={formAction} className="form">
+        <input type="text" name="title" placeholder="Title" required />
+        <textarea name="body" placeholder="Body" required />
+        <button type="submit" disabled={isPending}>
           {isPending ? "Creating..." : "Create Post"}
         </button>
       </form>
 
-      {loading && <p className={styles.error}>Loading useMutation...</p>}
-      {error && <p className={styles.error}>Error: {error.message}</p>}
+      {loading && <p className="loading-text">Loading useMutation...</p>}
+
+      {error && <p className="error-text">Error: {error.message}</p>}
+
       {data && (
-        <p className={styles.success}>
+        <p className="success-text">
           ✅ Post created! ID: {data.createPost.id}
         </p>
       )}
